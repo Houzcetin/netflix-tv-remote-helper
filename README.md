@@ -271,7 +271,7 @@ The app is plain Java with no libraries, so it builds straight from the Android 
 flowchart LR
     R["res/ +<br/>AndroidManifest.xml"] -->|aapt2 compile + link| U["unsigned.apk<br/>+ R.java"]
     S["src/*.java"] -->|"javac --release 8<br/>(android-34 jar)"| C["*.class"]
-    U -.R.java.-> C
+    U -.->|"R.java"| C
     C -->|d8 --min-api 28| D["classes.dex"]
     D -->|added to| U
     U -->|zipalign| Z["aligned.apk"]
